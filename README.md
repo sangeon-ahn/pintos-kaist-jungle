@@ -1,104 +1,6 @@
 # Pintos (KAIST / Krafton Jungle)
 
-[English](#english) | [한국어 (Korean)](#korean)
-
-<a name="english"></a>
-
-## English
-
-This is the **Pintos** operating system framework, specifically the version used for Operating Systems and Lab (CS330) at KAIST and the Krafton Jungle program. It is an educational x86_64 operating system designed to introduce key concepts in OS design and implementation.
-
-### 📚 Documentation
-
-The official manual is the primary reference for this project:
-👉 **[KAIST Pintos Manual](https://casys-kaist.github.io/pintos-kaist/)**
-
-### 📂 Project Structure
-
-The repository is organized as follows:
-
-- **`threads/`**: Source code for the base kernel, which includes the thread scheduler, synchronization primitives, and interrupt handling. (Project 1)
-- **`userprog/`**: Support for loading and running user programs, including argument passing and system calls. (Project 2)
-- **`vm/`**: Virtual memory implementation, including page tables, swap, and stack growth. (Project 3)
-- **`filesys/`**: File system implementation. (Project 4)
-- **`devices/`**: Source code for I/O device interfacing (keyboard, timer, disk, VGA, etc.).
-- **`lib/`**: Implementation of a subset of the standard C library (kernel and user).
-- **`tests/`**: Comprehensive test suite for grading.
-- **`utils/`**: Helper scripts for running Pintos, including the `pintos` wrapper script.
-- **`include/`**: Header files shared across the kernel.
-
-### 🚀 Getting Started
-
-#### Prerequisites
-
-You need a Linux-based environment (or WSL on Windows) with the following tools installed:
-- GCC (configured for x86_64)
-- GDB
-- QEMU (x86_64 emulator)
-- Make
-- Perl
-
-#### Setting up Environment
-
-Add the `utils` directory to your `PATH` so you can use the `pintos` command anywhere.
-
-```bash
-export PATH=$PATH:$(pwd)/utils
-```
-
-#### Building
-
-Pintos is built separately for each project phase. Navigate to the project subdirectory (e.g., `threads`, `userprog`, `vm`, `filesys`) and run `make`.
-
-**Example: Building Project 1 (Threads)**
-
-```bash
-cd threads
-make
-```
-
-This creates a `build/` directory containing the compiled kernel (`kernel.o`) and the disk loader (`loader.o`).
-
-### 🏃 Running Pintos
-
-Use the `pintos` utility to run the operating system in QEMU.
-
-**Example: Running a specific test case**
-```bash
-# In the threads directory
-pintos -- -q run alarm-multiple
-```
-
-**Example: Debugging with GDB**
-```bash
-pintos --gdb -- -q run alarm-multiple
-```
-
-### 🧪 Testing
-
-Each project has its own set of tests. You can run all tests for the current project using `make check`.
-
-```bash
-cd threads
-make check
-```
-
-To run a specific test, compiled in the `build/tests/` directory:
-
-```bash
-cd build
-make tests/threads/alarm-multiple.result
-```
-
-### 🧹 Cleaning
-
-To remove build artifacts and clean the directory:
-
-```bash
-make clean
-```
-
----
+[한국어 (Korean)](#korean) | [English](#english)
 
 <a name="korean"></a>
 
@@ -191,6 +93,104 @@ make tests/threads/alarm-multiple.result
 ### 🧹 정리하기 (Clean)
 
 빌드 산출물을 삭제하고 디렉토리를 정리하려면:
+
+```bash
+make clean
+```
+
+---
+
+<a name="english"></a>
+
+## English
+
+This is the **Pintos** operating system framework, specifically the version used for Operating Systems and Lab (CS330) at KAIST and the Krafton Jungle program. It is an educational x86_64 operating system designed to introduce key concepts in OS design and implementation.
+
+### 📚 Documentation
+
+The official manual is the primary reference for this project:
+👉 **[KAIST Pintos Manual](https://casys-kaist.github.io/pintos-kaist/)**
+
+### 📂 Project Structure
+
+The repository is organized as follows:
+
+- **`threads/`**: Source code for the base kernel, which includes the thread scheduler, synchronization primitives, and interrupt handling. (Project 1)
+- **`userprog/`**: Support for loading and running user programs, including argument passing and system calls. (Project 2)
+- **`vm/`**: Virtual memory implementation, including page tables, swap, and stack growth. (Project 3)
+- **`filesys/`**: File system implementation. (Project 4)
+- **`devices/`**: Source code for I/O device interfacing (keyboard, timer, disk, VGA, etc.).
+- **`lib/`**: Implementation of a subset of the standard C library (kernel and user).
+- **`tests/`**: Comprehensive test suite for grading.
+- **`utils/`**: Helper scripts for running Pintos, including the `pintos` wrapper script.
+- **`include/`**: Header files shared across the kernel.
+
+### 🚀 Getting Started
+
+#### Prerequisites
+
+You need a Linux-based environment (or WSL on Windows) with the following tools installed:
+- GCC (configured for x86_64)
+- GDB
+- QEMU (x86_64 emulator)
+- Make
+- Perl
+
+#### Setting up Environment
+
+Add the `utils` directory to your `PATH` so you can use the `pintos` command anywhere.
+
+```bash
+export PATH=$PATH:$(pwd)/utils
+```
+
+#### Building
+
+Pintos is built separately for each project phase. Navigate to the project subdirectory (e.g., `threads`, `userprog`, `vm`, `filesys`) and run `make`.
+
+**Example: Building Project 1 (Threads)**
+
+```bash
+cd threads
+make
+```
+
+This creates a `build/` directory containing the compiled kernel (`kernel.o`) and the disk loader (`loader.o`).
+
+### 🏃 Running Pintos
+
+Use the `pintos` utility to run the operating system in QEMU.
+
+**Example: Running a specific test case**
+```bash
+# In the threads directory
+pintos -- -q run alarm-multiple
+```
+
+**Example: Debugging with GDB**
+```bash
+pintos --gdb -- -q run alarm-multiple
+```
+
+### 🧪 Testing
+
+Each project has its own set of tests. You can run all tests for the current project using `make check`.
+
+```bash
+cd threads
+make check
+```
+
+To run a specific test, compiled in the `build/tests/` directory:
+
+```bash
+cd build
+make tests/threads/alarm-multiple.result
+```
+
+### 🧹 Cleaning
+
+To remove build artifacts and clean the directory:
 
 ```bash
 make clean
